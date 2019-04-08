@@ -132,7 +132,7 @@
             <properties>
                 <profileActive>test</profileActive>
                 <sys.path>/var/local</sys.path>
-                <log.file.level>error</log.file.level>
+                <log.file.level>info</log.file.level>
             </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
