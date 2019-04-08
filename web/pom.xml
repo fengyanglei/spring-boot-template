@@ -20,13 +20,14 @@
     </properties>
 
     <dependencies>
-
+        <!--内部jar-->
         <dependency>
             <groupId>com.fyl.boot</groupId>
             <artifactId>service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!--spring-boot-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -37,22 +38,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
 
     <!--构建jar-->
     <build>
         <finalName>spring-boot-template</finalName>
+
         <filters>
             <filter>src/main/resources/application-${profileActive}.properties</filter>
         </filters>
+
         <resources>
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
-                <!-- true 打包時候變量替換 -->
                 <filtering>true</filtering>
             </resource>
             <resource>
@@ -60,7 +63,6 @@
                 <excludes>
                     <exclude>**/*.properties</exclude>
                 </excludes>
-                <!-- true 打包時候變量替換 -->
                 <filtering>true</filtering>
             </resource>
             <resource>
@@ -69,17 +71,25 @@
                     <include>application-${profileActive}.properties</include>
                     <include>application.properties</include>
                 </includes>
-                <!-- true 打包時候變量替換 -->
                 <filtering>true</filtering>
             </resource>
         </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- tag::plugin[] -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <!-- docker -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -96,18 +106,9 @@
                     </resources>
                 </configuration>
             </plugin>
-            <!-- end::plugin[] -->
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>dev</id>
