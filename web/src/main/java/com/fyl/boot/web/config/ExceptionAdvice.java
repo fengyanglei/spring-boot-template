@@ -1,6 +1,8 @@
 package com.fyl.boot.web.config;
 
 import com.fyl.boot.common.response.Response;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -20,7 +22,7 @@ import java.util.Map;
  */
 @RestControllerAdvice
 public class ExceptionAdvice {
-
+    private final Log logger = LogFactory.getLog(this.getClass());
 
     /**
      * 捕捉校验异常(BindException)
@@ -59,6 +61,7 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public Response globalException(HttpServletRequest request, Throwable ex) {
+        logger.error(ex.getMessage(),ex);
         return new Response(null, ex.toString() + ": " + ex.getMessage(), this.getStatus(request).value());
     }
 

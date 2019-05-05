@@ -36,7 +36,7 @@
 		</encoder>
 		<!-- Only log level DEBUG and above -->
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>@log.console.level@</level>
+			<level>@log.file.level@</level>
 		</filter>
 	</appender>
 
