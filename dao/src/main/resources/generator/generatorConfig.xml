@@ -20,16 +20,15 @@
                         password="123456">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.fyl.boot.dao.pojo.reverse" targetProject="src/main/java"/>
+        <!--pojo.java-->
+        <javaModelGenerator targetPackage="com.fyl.boot.dao.pojo" targetProject="src/main/java"/>
+        <!--Mapper.xml-->
+        <sqlMapGenerator targetPackage="com.fyl.boot.dao.mapper" targetProject="src/main/resources"/>
+        <!--Mapper.java-->
+        <javaClientGenerator targetPackage="com.fyl.boot.dao.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
 
-        <sqlMapGenerator targetPackage="mapper.reverse" targetProject="src/main/resources"/>
-
-        <javaClientGenerator targetPackage="com.fyl.boot.dao.mapper.reverse" targetProject="src/main/java"
-                             type="XMLMAPPER"/>
-
-        <table tableName="file_resources">
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        <!--table-->
+        <table tableName="file_resources"/>
 
     </context>
 </generatorConfiguration>

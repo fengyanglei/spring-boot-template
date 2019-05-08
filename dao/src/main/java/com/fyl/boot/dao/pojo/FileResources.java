@@ -9,7 +9,6 @@ public class FileResources {
      * 主键
      */
     @Id
-    @GeneratedValue(generator = "JDBC")
     private Long id;
 
     /**
