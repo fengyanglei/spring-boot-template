@@ -27,28 +27,28 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
     static final String MAPPER_LOCATIONS = "classpath*:com.fyl.boot.dao.mapper/*Mapper.xml";
 
     @Primary
-    @Bean(name = "dataSource")
+    @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource setDataSource() {
+    public DataSource dataSource() {
         return new DruidDataSource();
     }
 
-    @Bean(name = "sqlSessionFactory")
-    public SqlSessionFactory setSqlSessionFactoryBean() throws Exception {
+    @Bean
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(setDataSource());
+        bean.setDataSource(dataSource());
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAPPER_LOCATIONS));
         return bean.getObject();
     }
 
-    @Bean(name = "sqlSessionTemplate")
-    public SqlSessionTemplate setSqlSessionTemplate() throws Exception {
-        return new SqlSessionTemplate(setSqlSessionFactoryBean());
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate() throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactory());
     }
 
     @Bean
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new DataSourceTransactionManager(setDataSource());
+        return new DataSourceTransactionManager(dataSource());
     }
 }

@@ -29,26 +29,26 @@ public class MybatisConfig2 {
 
     @Bean(name = "dataSource" + SUFFIX)
     @ConfigurationProperties(prefix = "spring.datasource2")
-    public DataSource setDataSource() {
+    public DataSource dataSource() {
         return new DruidDataSource();
     }
 
     @Bean(name = "sqlSessionFactory" + SUFFIX)
-    public SqlSessionFactory setSqlSessionFactory() throws Exception {
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(setDataSource());
+        bean.setDataSource(dataSource());
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAPPER_LOCATIONS));
         return bean.getObject();
     }
 
     @Bean(name = "sqlSessionTemplate" + SUFFIX)
-    public SqlSessionTemplate setSqlSessionTemplate() throws Exception {
-        return new SqlSessionTemplate(setSqlSessionFactory());
+    public SqlSessionTemplate sqlSessionTemplate() throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactory());
     }
 
     @Bean(name = "transactionManager" + SUFFIX)
-    public DataSourceTransactionManager setTransactionManager() {
-        return new DataSourceTransactionManager(setDataSource());
+    public DataSourceTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 
 }
