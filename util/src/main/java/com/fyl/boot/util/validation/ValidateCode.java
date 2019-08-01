@@ -1,4 +1,4 @@
-package com.fyl.boot.util;
+package com.fyl.boot.util.validation;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

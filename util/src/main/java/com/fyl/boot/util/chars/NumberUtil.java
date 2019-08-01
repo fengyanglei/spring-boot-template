@@ -1,4 +1,4 @@
-package com.fyl.boot.util;
+package com.fyl.boot.util.chars;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;

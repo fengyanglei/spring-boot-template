@@ -1,4 +1,6 @@
-package com.fyl.boot.util;
+package com.fyl.boot.util.chars;
+
+import com.fyl.boot.util.ArrayUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.fyl.boot.util;
+package com.fyl.boot.util.chars;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

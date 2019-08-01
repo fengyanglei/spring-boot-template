@@ -18,7 +18,7 @@
  * =============================================================================
  *
  */
-package com.fyl.boot.util;
+package com.fyl.boot.util.chars;
 
 import java.io.Serializable;
 import java.text.ParseException;

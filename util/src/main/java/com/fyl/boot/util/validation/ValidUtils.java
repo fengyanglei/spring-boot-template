@@ -1,4 +1,4 @@
-package com.fyl.boot.util;
+package com.fyl.boot.util.validation;
 
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;

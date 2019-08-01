@@ -3,7 +3,7 @@ package com.fyl.boot.web.aspect;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fyl.boot.common.dto.SysRequestLogInfo;
-import com.fyl.boot.util.DateUtils;
+import com.fyl.boot.util.chars.DateUtils;
 import com.fyl.boot.util.IpUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
