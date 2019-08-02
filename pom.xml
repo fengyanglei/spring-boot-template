@@ -76,6 +76,12 @@
             <!--<artifactId>spring-session-data-redis</artifactId>-->
         <!--</dependency>-->
 
+        <!--mq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
         <!--test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
