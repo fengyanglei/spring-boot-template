@@ -47,12 +47,12 @@ public class SysRequestLogInfo {
     /**
      * post数据
      */
-    private String requestPostData;
+    private Object requestPostData;
 
     /**
      * response数据
      */
-    private String response;
+    private Object response;
 
     /**
      * 请求时间

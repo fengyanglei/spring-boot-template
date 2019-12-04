@@ -62,7 +62,7 @@ public class ControllerLogAspect {
             log.setRequestTime(DateUtils.dateToString(new Date(startTimeMillis)));
             log.setSpendTimeMillis(System.currentTimeMillis() - startTimeMillis);
             //响应数据
-            log.setResponse(JSONObject.toJSONString(result));
+            log.setResponse(result);
             //用户信息
             this.setUser(log);
             //post body
@@ -109,7 +109,7 @@ public class ControllerLogAspect {
             if (o instanceof HttpServletRequest || o instanceof HttpServletResponse) {
                 continue;
             }
-            log.setRequestPostData(JSONObject.toJSONString(o));
+            log.setRequestPostData(o);
         }
     }
 
